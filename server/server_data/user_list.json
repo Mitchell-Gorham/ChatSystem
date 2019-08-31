@@ -1,25 +1,30 @@
 {
-    "Admin":{
+    "0":{
+        "name":"Admin",
         "email":"admin",
         "pass":"admin",
         "admin":"super"
     },
-    "The Coolest Kid":{
+    "1":{
+        "name":"The Coolest Kid",
         "email":"abc",
         "pass":"123",
         "admin":"null"
     },
-    "Mangu pangu":{
+    "2":{
+        "name":"Mangu pangu",
         "email":"bcd",
         "pass":"234",
         "admin":"group"
     },
-    "Hero of the Chat Forum":{
+    "3":{
+        "name":"Hero of the Chat Forum",
         "email":"cde",
         "pass":"345",
         "admin":"super"
     },
-    "Eek":{
+    "4":{
+        "name":"Eek",
         "email":"def",
         "pass":"456",
         "admin":"No"
