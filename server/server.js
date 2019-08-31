@@ -13,9 +13,8 @@ app.use(cors());   //Apply express middleware
 sockets.connect(io, PORT);  //Setup Socket
 
 server.listen(http, PORT);  //Start server listening for requests
-/*
+
 //Route for default page (root of site)
 app.get('/',function(req,res){
-    res.sendFile(__dirname+"/../src/app/chat/chat.component.html");
+    res.sendFile(__dirname + '/../src/app/login/login.component.html');
 });
-*/

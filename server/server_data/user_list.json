@@ -1,0 +1,27 @@
+{
+    "Admin":{
+        "email":"admin",
+        "pass":"admin",
+        "admin":"super"
+    },
+    "The Coolest Kid":{
+        "email":"abc",
+        "pass":"123",
+        "admin":"null"
+    },
+    "Mangu pangu":{
+        "email":"bcd",
+        "pass":"234",
+        "admin":"group"
+    },
+    "Hero of the Chat Forum":{
+        "email":"cde",
+        "pass":"345",
+        "admin":"super"
+    },
+    "Eek":{
+        "email":"def",
+        "pass":"456",
+        "admin":"No"
+    }
+}
