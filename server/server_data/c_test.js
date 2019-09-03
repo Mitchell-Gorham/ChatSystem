@@ -1,28 +1,32 @@
 const fs = require('fs');
-//var json = require('./user_list.json');
-//let messages = require('./message_hist');
-//READ
-fs.readFile('./user_list.json', 'utf8', (err, fileContents) => {
-    if (err) {
-      console.error(err)
-      return;
-    }
-    try {
-      const data = JSON.parse(fileContents)
-      console.log(data);
-      for (let i = 0; i < data.length ; i++ ) {
-        if ("def" == data[i].email && "456" == data[i].pass) {
-          //This is where we return true 
-          console.log("The email address is " + data[i].email + " and the pass is " + data[i].pass );
-        } else {
-          console.log(false);
-        }
-      }
-    } catch(err) {
-      console.error(err);
-    }
-  });
 
+//Compares the passed values against the userlist to see if the right credentials are posted
+export function loginParse (email, pass) {
+  fs.readFile('./user_list.json', 'utf8', (err, fileContents) => {
+      if (err) {
+        console.error(err)
+        return;
+      }
+      try {
+        const data = JSON.parse(fileContents)
+        //console.log(data);
+        for (let i = 0; i < data.length ; i++ ) {
+          if (email == data[i].email && pass == data[i].pass) {
+
+            //return (data[i]); // Returns
+            console.log(data[i]);
+            //console.log("UN:"+ data[i].name +" EM:" + data[i].email + " PW:" + data[i].pass );
+          } else if ( i == data.length-1 && data[i].pass != pass ) {
+            return(false);
+          } else {
+            continue;
+          }
+        }
+      } catch(err) {
+        console.error(err);
+      }
+    });
+}
 
 //WRITE
 /*let newmess = {

@@ -9,7 +9,7 @@
         "name":"The Coolest Kid",
         "email":"abc",
         "pass":"123",
-        "admin":"null"
+        "admin":"no"
     },
     {
         "name":"Mangu pangu",
@@ -27,6 +27,6 @@
         "name":"Eek",
         "email":"def",
         "pass":"456",
-        "admin":"No"
+        "admin":"no"
     }
 ]

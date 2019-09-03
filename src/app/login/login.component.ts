@@ -9,7 +9,7 @@ import { DatamanagerService } from '../services/datamanager.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router, dataService: DatamanagerService) { }
+  constructor(private router: Router, private data:DatamanagerService) { }
 
   em=""
   pass=""
@@ -18,15 +18,21 @@ export class LoginComponent implements OnInit {
     {username:"def@com", pwd:"456"},
     {username:"ghi@com", pwd:"789"}
   ]
-
+  
   loginClick() {
     console.log("EMAIL: "+this.em+" PASS: "+this.pass);
-    for (var i = 0; i < this.valid.length; i++) {
+    var obj = this.data.getLogin(this.em, this.pass);
+    console.log(obj);
+    if (obj) {
+      this.router.navigate(["/account"]);
+      localStorage.setItem("valid","true");
+      console.log(localStorage.getItem("valid"));
+    }
+    /*for (var i = 0; i < this.valid.length; i++) {
       if( this.em == this.valid[i].username && this.pass == this.valid[i].pwd ){
         this.router.navigate(["/chat"]);
       }
-
-    }
+    }*/
   }
 
 

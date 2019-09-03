@@ -5,7 +5,12 @@ import { ChatComponent } from './chat/chat.component';
 import { AccountComponent } from './account/account.component';
 
 
-const route: Routes = [{path: 'login', component: LoginComponent}, {path: 'chat', component: ChatComponent}, {path: 'account', component: AccountComponent}];
+const route: Routes = [
+  {path: 'login', component: LoginComponent},
+  {path: 'chat', component: ChatComponent},
+  {path: 'account', component: AccountComponent},
+  {path: '', component: LoginComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(route)],

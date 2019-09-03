@@ -20,10 +20,10 @@
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 4;
-  background: #6F9;
+  background: #1e1d22;
   overflow-y: auto;
 
-  background-image: url(http://www.sclance.com/backgrounds/minimalist-space-wallpaper/minimalist-space-wallpaper_1527461.jpg);
+  background-image: url();
   background-size: cover;
 }
 
@@ -31,21 +31,23 @@
   grid-column-start: 2;
   grid-row-start: 1;
   grid-row-end: 3;
-  background: #F69;
+  background: #1e1d22;
+  overflow-x: wrap;
   overflow-y: auto;
+  font-size: 1em;
   margin-left: 10px;
 
-  background-image: url(https://wallpaperplay.com/walls/full/e/d/3/25521.jpg);
+  background-image: url();
   background-size: cover;
 }
 
 .chat {
   grid-column-start: 2;
   grid-row-start: 3;
-  background: #F31;
+  background: #1e1d22;
   overflow-y: auto;
   margin-left: 10px;
 
-  background-image: url(https://d12swbtw719y4s.cloudfront.net/images/Wg9MR6yo/rryKldWl7KxSJJLj1XHz/Sellfy_banner.jpeg?w=620);
+  background-image: url();
   background-size: contain;
 }
