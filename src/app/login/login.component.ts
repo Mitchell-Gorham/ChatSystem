@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
     if (obj) {
       this.router.navigate(["/account"]);
       localStorage.setItem("valid","true");
+      localStorage.setItem("name",this.em);
       console.log(localStorage.getItem("valid"));
     }
     /*for (var i = 0; i < this.valid.length; i++) {

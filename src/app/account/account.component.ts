@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountComponent implements OnInit {
 
+  name=localStorage.getItem("name");
+
   constructor() { }
 
   ngOnInit() {

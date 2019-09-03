@@ -22,7 +22,7 @@
   grid-row-end: 4;
   background: #1e1d22;
   overflow-y: auto;
-
+  font-size: 1em;
   background-image: url();
   background-size: cover;
 }
@@ -46,6 +46,7 @@
   grid-row-start: 3;
   background: #1e1d22;
   overflow-y: auto;
+  font-size: 1em;
   margin-left: 10px;
 
   background-image: url();
