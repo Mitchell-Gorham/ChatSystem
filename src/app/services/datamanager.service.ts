@@ -6,5 +6,9 @@ import { HttpClientModule } from '@angular/common/http'
 })
 export class DatamanagerService {
 
-  constructor() { }
+  constructor( http:HttpClientModule) { }
+  
+  public getData(email:string, pass:string): boolean {
+    
+  }
 }
