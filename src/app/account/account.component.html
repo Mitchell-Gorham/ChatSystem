@@ -1,7 +1,18 @@
-<div style="text-align:center">
-    <h1>Account Page</h1>
-    <nav>
+<div class="grid-container">
+    <div class="grid-element profile-pic" style="text-align:center">
         <img width="250" alt="Joey is so happy to see you mouse over him. His parents never loved him and put him up for adoption when he was three." src="https://cdn.mindful.org/2015/09/1200x1200.jpg">
-    </nav>
+        <div>{{Username}}'s Profile</div>
+    </div>
+    <div class="grid-element channel-management">
+        <div class="input-field">
+            <input placeholder="Secret Hitler" type="text" class="validate">
+        </div>
+    </div>
+    <div class="grid-element profile-data">
+        <div class="input-field">
+            <div></div>
+        </div>
+    </div>
 </div>
+
 <router-outlet></router-outlet>
