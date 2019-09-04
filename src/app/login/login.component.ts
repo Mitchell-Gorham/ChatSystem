@@ -9,18 +9,13 @@ import { DatamanagerService } from '../services/datamanager.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router, private data:DatamanagerService) { }
+  constructor(private router:Router, private data:DatamanagerService) { }
 
-  em=""
+  em=""     // Linked to the html login and password components
   pass=""
-  valid= [
-    {username:"abc@com", pwd:"123"},
-    {username:"def@com", pwd:"456"},
-    {username:"ghi@com", pwd:"789"}
-  ]
   
   loginClick() {
-    console.log("EMAIL: "+this.em+" PASS: "+this.pass);
+    //console.log("EMAIL: "+this.em+" PASS: "+this.pass); // Debug
     var obj = this.data.getLogin(this.em, this.pass);
     console.log(obj);
     if (obj) {
@@ -29,15 +24,15 @@ export class LoginComponent implements OnInit {
       localStorage.setItem("name",this.em);
       console.log(localStorage.getItem("valid"));
     }
-    /*for (var i = 0; i < this.valid.length; i++) {
-      if( this.em == this.valid[i].username && this.pass == this.valid[i].pwd ){
-        this.router.navigate(["/chat"]);
-      }
-    }*/
   }
 
 
   
   ngOnInit() {
+    // Redirects user to account if they're already logged in
+    var valid=localStorage.getItem("valid");
+    if (valid){
+      this.router.navigate(["/account"]);
+    }
   }
 }

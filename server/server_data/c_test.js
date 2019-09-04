@@ -1,7 +1,10 @@
+//Backend testing script 
+
 const fs = require('fs');
 
 //Compares the passed values against the userlist to see if the right credentials are posted
 export function loginParse (email, pass) {
+  console.log("RUNNING")
   fs.readFile('./user_list.json', 'utf8', (err, fileContents) => {
       if (err) {
         console.error(err)
@@ -12,8 +15,7 @@ export function loginParse (email, pass) {
         //console.log(data);
         for (let i = 0; i < data.length ; i++ ) {
           if (email == data[i].email && pass == data[i].pass) {
-
-            //return (data[i]); // Returns
+            return (data[i]); // Returns
             console.log(data[i]);
             //console.log("UN:"+ data[i].name +" EM:" + data[i].email + " PW:" + data[i].pass );
           } else if ( i == data.length-1 && data[i].pass != pass ) {

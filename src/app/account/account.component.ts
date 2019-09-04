@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatamanagerService } from '../services/datamanager.service';
 
 @Component({
   selector: 'app-account',
@@ -9,8 +10,9 @@ export class AccountComponent implements OnInit {
 
   name=localStorage.getItem("name");
 
-  constructor() { }
+  constructor ( private data:DatamanagerService ) { }
 
   ngOnInit() {
+    this.data.userValid();
   }
 }

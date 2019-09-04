@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatamanagerService } from '../services/datamanager.service';
 
 @Component({
   selector: 'app-chat',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatComponent implements OnInit {
 
-  constructor() { }
+  constructor( private data:DatamanagerService ) { }
 
   ngOnInit() {
+    this.data.userValid();
   }
-
 }
