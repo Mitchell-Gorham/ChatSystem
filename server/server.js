@@ -17,16 +17,12 @@ const PORT = 3000;  //Define port used for the server
 app.use(cors());   //Apply express middleware
 app.use(bodyParser.json());
 
-sockets.connect(io, PORT);  //Setup Socket
-server.listen(http, PORT);  //Start server listening for requests
+client.connect("mongodb://localhost:27017",  { useNewUrlParser: true, useUnifiedTopology: true }).then(async (client) => {
+    let db = client.db("chitterDB")
+    sockets.connect(io, db);  //Setup Socket
+});
 
-// client.connect("mongodb://localhost:27017",  { useNewUrlParser: true, useUnifiedTopology: true }).then(async (client) => {
-//     try {
-//         db = client.db("chitterDB")
-//     } catch (err) {
-//         console.warn(err)
-// 		response.status(500).json("Something Bad Occured")
-// 	}
+server.listen(http, PORT);  //Start server listening for requests
 
 app.post("/login", async function (req, res) {
     try {

@@ -8,7 +8,7 @@
         <div *ngFor="let group of groupList">
             {{group.gname}}
             <div *ngFor="let channel of channelList">
-                <button *ngIf="channel.group==group.gname">{{channel.cname}}</button>
+                <div style="font-size:24px; color:gray" *ngIf="channel.group==group.gname">{{channel.cname}}</div>
             </div>
         </div>
     </div>

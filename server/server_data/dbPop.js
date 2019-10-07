@@ -209,32 +209,31 @@ module.exports.populateDatabase = function () {
 			if (content.length === 0 && drop === false){	// If no database exists, create dummy database
 				await collection.insertMany([
 				{
-					"id":0,
 					"time":"01:20",
+					"user":"The Coolest Kid",
 					"body":"This channel was established to talk about Calcio cats.",
-					"cID":0,
-					"user":"The Coolest Kid"
+					"cID":0
+
 				},
 				{
-					"id":1,
 					"time":"13:21",
+					"user":"Mangu Pangu",
 					"body":"This channel should be about space cats!",
-					"cID":0,
-					"user":"Mangu Pangu"
+					"cID":0
+
 				},
 				{
-					"id":2,
 					"time":"04:53",
+					"user":"Hero of the Chat Forum",
 					"body":"Welcome to the party room",
-					"cID":2,
-					"user":"Hero of the Chat Forum"
+					"cID":2
+					
 				},
 				{
-					"id":3,
 					"time":"14:53",
+					"user":"Admin",
 					"body":"I'll remove you if you ever speak again Mangu Pangu",
-					"cID":0,
-					"user":"Admin"
+					"cID":0
 				}
 				])
 			}

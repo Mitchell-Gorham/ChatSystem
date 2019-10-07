@@ -28,7 +28,6 @@
               "src/styles.css"
             ],
             "scripts": [
-              "server/server_data/dbAuth.js"
             ]
           },
           "configurations": {
