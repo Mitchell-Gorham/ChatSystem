@@ -19,9 +19,9 @@ export class LoginComponent implements OnInit {
 		console.log("EMAIL: "+this.em+" PASS: "+this.pass); // Debug
 		this.verify = await this.data.loginParse(this.em,this.pass);
 		if (this.verify) {
+			localStorage.setItem("valid", "true");
+			localStorage.setItem("email", this.em);
 			this.router.navigate(["/account"]);
-			localStorage.setItem("valid","true");
-			localStorage.setItem("name",this.em);
 		}
 		console.log(this.verify);
 	}

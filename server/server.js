@@ -7,7 +7,10 @@ const sockets = require('./socket.js');
 const server = require('./listen.js');
 const bodyParser = require('body-parser');
 
-const { loginParse } = require('./server_data/dbAuth');
+const mongo = require('mongodb')
+const client = mongo.MongoClient;
+
+const dbAuth = require('./server_data/dbAuth');
 
 const PORT = 3000;  //Define port used for the server
 
@@ -17,11 +20,19 @@ app.use(bodyParser.json());
 sockets.connect(io, PORT);  //Setup Socket
 server.listen(http, PORT);  //Start server listening for requests
 
+// client.connect("mongodb://localhost:27017",  { useNewUrlParser: true, useUnifiedTopology: true }).then(async (client) => {
+//     try {
+//         db = client.db("chitterDB")
+//     } catch (err) {
+//         console.warn(err)
+// 		response.status(500).json("Something Bad Occured")
+// 	}
+
 app.post("/login", async function (req, res) {
     try {
-        console.log(req.body);
+        //console.log(req.body);
         const { email, pass } = req.body;
-        const succeeded = await loginParse(email, pass);
+        const succeeded = await dbAuth.loginParse(email, pass);
         if (succeeded) { 
             res.json(true);
         } else {
@@ -32,6 +43,50 @@ app.post("/login", async function (req, res) {
         res.status(500).json("Something went Wrongly")
     }
 });
+
+app.post("/account", async function (req, res) {
+    try {
+        //console.log(req.body);
+        const { email } = req.body;
+        const userData = await dbAuth.accountParse(email);
+        if (userData === '' ) {
+            res.json("Error - No Data Retrieved");
+        } else {
+            res.json(userData);
+        }
+    } catch (err) {
+        console.warn(err)
+        res.status(500).json("Something went Wrongly")
+    }
+})
+
+app.post("/group", async function (req, res) {
+    try {
+        const groupData = await dbAuth.groupParse();
+        res.json(groupData);
+    } catch (err) {
+        console.warn(err)
+        res.status(500).json("Something went Wrongly")
+    }
+})
+
+app.post("/channel", async function (req, res) {
+    try {
+        console.log(req.body);
+        const { name } = req.body;
+        const userData = await dbAuth.channelParse(name);
+        if (userData === '' ) {
+            res.json("Error - No Data Retrieved");
+        } else {
+            res.json(userData);
+        }
+    } catch (err) {
+        console.warn(err)
+        res.status(500).json("Something went Wrongly")
+    }
+})
+
+//});
 
 //Route for default page (root of site)
 app.get('/',function(req,res){

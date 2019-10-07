@@ -1,12 +1,14 @@
 <div class="grid-container">
     <div class="grid-element sidebar">
-        <!--
-        <div *ngRepeat="group in groupList">
-            <div *ngRepeat="channel in group">
-                <li class="list-group-item">{{channel}}</li>
+        
+        <div class="grid-element channel-management">
+            <div *ngFor="let group of groupList">
+                {{group.gname}}
+                <div *ngFor="let channel of channelList">
+                    <button routerLink="/chat/channel.cname" *ngIf="channel.group==group.gname">{{channel.cname}}</button>
+                </div>
             </div>
         </div>
-        -->
         <!--
         <select *ngFor="let group in Groups">
             {{ group }}

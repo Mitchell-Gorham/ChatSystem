@@ -2,12 +2,17 @@
     <div class="grid-element profile-pic" style="text-align:center">
         <img width="250" alt="Joey is so happy to see you mouse over him. His parents never loved him and put him up for adoption when he was three." src="https://cdn.mindful.org/2015/09/1200x1200.jpg">
         <div>{{name}}'s Profile</div>
+        <div>Email: {{email}}</div>
     </div>
     <div class="grid-element channel-management">
-        <div>Contains the different groups the user is a part of. Shows moderator commands next to the groups if they have the permissions to do so.</div>
+        <div *ngFor="let group of groupList">
+            {{group.gname}}
+            <div *ngFor="let channel of channelList">
+                <button *ngIf="channel.group==group.gname">{{channel.cname}}</button>
+            </div>
+        </div>
     </div>
     <div class="grid-element profile-data">
-        <div>{{email}}</div>
         <div><a class="nav-link" routerLink="/chat">Go to Chat</a></div>
     </div>
 </div>
