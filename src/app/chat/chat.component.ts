@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatamanagerService } from '../services/datamanager.service';
 
-import { SocketsService } from '../services/socketmanager.service';
-import {Message} from '../message';
-
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -11,20 +8,17 @@ import {Message} from '../message';
 })
 export class ChatComponent implements OnInit {
 
-  constructor( private data:DatamanagerService, private socket:SocketsService) { }
+  constructor( private data:DatamanagerService ) { }
   
 	name = localStorage.getItem("name");
 	email = localStorage.getItem("email");
 	
+	chatmessage = ""
 	valid = false;
 
 	msgList:any;
 	groupList:any;
 	channelList:any;
-	
-	ioConnection:any;
-	message:Message[] = []
-	chatmessage:string = ""
 
 	async messageList(cID) {
 		console.log(cID)
@@ -35,14 +29,7 @@ export class ChatComponent implements OnInit {
 	async chatSubmit() {
 		if (this.chatmessage){
 			console.log(this.chatmessage)
-			var today = new Date();
-			var time = today.getHours() + ":" + today.getMinutes()
-			this.socket.chat(new Message(this.chatmessage,time))
-
-
-
-			// Clear the chat message
-			this.chatmessage=null;
+			this.chatmessage=""
 		}
 	}
 
@@ -50,10 +37,6 @@ export class ChatComponent implements OnInit {
 		//console.log("Reached account.ts");
 		this.valid = this.data.userValid();
 		if (this.valid){
-			this.socket.initSocket();
-			this.ioConnection = this.socket.onMessage()
-
-
 			// Fetch Groups
 			this.groupList = await this.data.groupParse()
 			//console.log(this.groupList)
