@@ -67,10 +67,10 @@ module.exports.channelParse = async function channelParse(name){
 	try {
 		const collection = db.collection("channelList");
 		const query = { "memberlist": {$elemMatch: {$eq: name }}};
-		console.log(query);
+		//console.log(query);
 		const channel = await collection.find(query).toArray();
-		console.log("Channels Retrieved")
-		console.log(channel)
+		//console.log("Channels Retrieved")
+		//console.log(channel)
 		return channel;
 	} catch (err) {
 		console.warn(err)
@@ -78,8 +78,15 @@ module.exports.channelParse = async function channelParse(name){
 	}
 }
 
-module.exports.sidebarPopulate = function sidebarPopulate(){
-	const groupColl = db.collection("groupList")
-	groupColl.find({}).toArray((err,data))
-	return(data)
+module.exports.messageList = async function messageList(cID){
+	try {
+		const collection = db.collection("messageList");
+		const message = await collection.find({ "cID":cID }).toArray();
+		//console.log("Message Data Retrieved");
+		//console.log(message)
+		return message;
+	} catch (err) {
+		console.warn(err)
+		response.status(500).json("FAILED: Message retrieval")
+	}
 }

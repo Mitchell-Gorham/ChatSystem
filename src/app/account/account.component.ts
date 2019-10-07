@@ -36,7 +36,7 @@ export class AccountComponent implements OnInit {
 
 			// Fetch Channels that user is a part of
 			this.channelList = await this.data.channelParse(this.name)
-			console.log(this.channelList)
+			//console.log(this.channelList)
 			
 		}
 	}

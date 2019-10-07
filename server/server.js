@@ -40,7 +40,7 @@ app.post("/login", async function (req, res) {
         }
     } catch (err) {
         console.warn(err)
-        res.status(500).json("Something went Wrongly")
+        res.status(500).json("Server couldn't deal with /login")
     }
 });
 
@@ -56,7 +56,7 @@ app.post("/account", async function (req, res) {
         }
     } catch (err) {
         console.warn(err)
-        res.status(500).json("Something went Wrongly")
+        res.status(500).json("Server couldn't deal with /account")
     }
 })
 
@@ -66,13 +66,13 @@ app.post("/group", async function (req, res) {
         res.json(groupData);
     } catch (err) {
         console.warn(err)
-        res.status(500).json("Something went Wrongly")
+        res.status(500).json("Server couldn't deal with /group")
     }
 })
 
 app.post("/channel", async function (req, res) {
     try {
-        console.log(req.body);
+        //console.log(req.body);
         const { name } = req.body;
         const userData = await dbAuth.channelParse(name);
         if (userData === '' ) {
@@ -82,9 +82,26 @@ app.post("/channel", async function (req, res) {
         }
     } catch (err) {
         console.warn(err)
-        res.status(500).json("Something went Wrongly")
+        res.status(500).json("Server couldn't deal with /channel")
     }
 })
+
+app.post("/messageList", async function (req, res) {
+    try {
+        //console.log("server sees:",req.body);
+        const { cID } = req.body;
+        const messageList = await dbAuth.messageList(cID);
+        if (messageList === '' ) {
+            res.json("Error - No Data Retrieved");
+        } else {
+            res.json(messageList);
+        }
+    } catch (err) {
+        console.warn(err)
+        res.status(500).json("Server couldn't deal with /messageList")
+    }
+})
+
 
 //});
 
