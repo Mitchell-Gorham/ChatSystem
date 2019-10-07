@@ -1,25 +1,63 @@
 <div class="grid-container">
     <div class="grid-element sidebar">
-        <div> Group 1 </div>
-        <div> - Channel A </div>
-        <div> - Channel E </div>
-        <div> Group 2 </div>
-        <div> - Channel ^ </div>
-        <div> - Channel & </div>
-        <div> - Channel @ </div>
+        <!--
+        <div *ngRepeat="group in groupList">
+            <div *ngRepeat="channel in group">
+                <li class="list-group-item">{{channel}}</li>
+            </div>
+        </div>
+        -->
+        <!--
+        <select *ngFor="let group in Groups">
+            {{ group }}
+
+        <button class="btn btn-secondary"
+                type="button"
+                href="javascript:;"
+                data-toggle="collapse"
+                data-target="#test">
+                Group A
+        </button>
+        <div id="test" class="collapse in">
+            <ul class="list-group">
+        -->
+            <!--<li *ngFor="let channel in group">
+                    {{ channel }}
+                </li>
+                <li class="list-group-item">Channel A</li>
+                <li class="list-group-item">Channel B</li>
+                <li class="list-group-item">Channel C</li>
+                <li class="list-group-item">Channel D</li>
+                <li class="list-group-item">Channel E</li>
+            </ul>
+        </div>
+        -->
+        
     </div>
+ 
     <div class="grid-element main">
+        <!--On Load, get active list
+            Each chat body has an ID,User,Contents
+            if you posted the message, align:left instead-->
+        <div style="text-align:left">[_] Charlie</div>
         <div style="text-align:left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et arcu ante. Cras pulvinar cursus risus, sed scelerisque libero viverra euismod. Cras nec euismod lorem. Praesent et varius enim. Integer sit amet nunc lorem.</div>
         <div>_</div>
+        <div style="text-align:right">You [_]</div>
         <div style="text-align:right">Aliquam ut posuere lorem. Vivamus faucibus sem ac gravida cursus. Praesent vel sodales libero. Integer molestie est id dignissim varius. Proin eget sagittis tellus, quis eleifend ligula.</div>
         <div>_</div>
+        <div style="text-align:left">[_] Charlie</div>        
         <div style="text-align:left">Nullam ipsum diam, malesuada ut congue quis, maximus quis metus. Nullam vel ultrices tortor, at posuere tortor. Morbi sagittis ex at enim laoreet aliquam. Maecenas placerat magna non ex mattis ornare.</div>
         <div>_</div>
+        <div style="text-align:left">[_] Wendy</div>        
         <div style="text-align:left">Aenean ultricies ligula at nunc interdum, ac accumsan nulla pulvinar. Donec maximus, tellus eu vehicula aliquam, massa sem semper lectus, vitae lacinia eros est id ligula.</div>
     </div>
+
     <div class="grid-element chat">
         <div class="input-field">
-            <input placeholder="Type here to Chat" type="text" class="validate">
+            <!--Take the input of the chat, post it to the channel
+                Something with observers and subscribing here very likely-->
+            <span><input placeholder="Type here to Chat" type="text" class="chatbox"></span>
+            <button class="btn btn-primary chatbutton" (click)="chatSubmit()" type="submit">Post</button>
         </div>
     </div>
 </div>

@@ -9,7 +9,7 @@ import { DatamanagerService } from '../services/datamanager.service';
 export class ChatComponent implements OnInit {
 
   constructor( private data:DatamanagerService ) { }
-
+  
   ngOnInit() {
     this.data.userValid();
   }

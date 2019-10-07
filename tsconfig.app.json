@@ -6,11 +6,11 @@
   "files": [
     "src/main.ts",
     "src/polyfills.ts",
-    "server/data/c_test.js"
+    "server/server_data/dbAuth.js"
   ],
   "include": [
     "src/**/*.ts",
-    "server/data/c_test.js"
+    "server/server_data/dbAuth.js"
   ],
   "exclude": [
     "src/test.ts",

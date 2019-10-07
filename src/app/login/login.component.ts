@@ -3,36 +3,34 @@ import { Router } from '@angular/router';
 import { DatamanagerService } from '../services/datamanager.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+	selector: 'app-login',
+	templateUrl: './login.component.html',
+	styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router:Router, private data:DatamanagerService) { }
+	constructor(private router:Router, private data:DatamanagerService) { }
 
-  em=""     // Linked to the html login and password components
-  pass=""
-  
-  loginClick() {
-    //console.log("EMAIL: "+this.em+" PASS: "+this.pass); // Debug
-    var obj = this.data.getLogin(this.em, this.pass);
-    console.log(obj);
-    if (obj) {
-      this.router.navigate(["/account"]);
-      localStorage.setItem("valid","true");
-      localStorage.setItem("name",this.em);
-      console.log(localStorage.getItem("valid"));
-    }
-  }
+	em=""     // Linked to the html login and password components
+	pass=""
+	verify=true;
 
-
-  
-  ngOnInit() {
-    // Redirects user to account if they're already logged in
-    var valid=localStorage.getItem("valid");
-    if (valid){
-      this.router.navigate(["/account"]);
-    }
-  }
+	async loginClick() {
+		console.log("EMAIL: "+this.em+" PASS: "+this.pass); // Debug
+		this.verify = await this.data.loginParse(this.em,this.pass);
+		if (this.verify) {
+			this.router.navigate(["/account"]);
+			localStorage.setItem("valid","true");
+			localStorage.setItem("name",this.em);
+		}
+		console.log(this.verify);
+	}
+	
+	ngOnInit() {
+		// Redirects user to account if they're already logged in
+		var valid=localStorage.getItem("valid");
+		if (valid){
+		this.router.navigate(["/account"]);
+		}
+	}
 }

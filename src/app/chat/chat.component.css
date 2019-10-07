@@ -1,6 +1,6 @@
 .grid-container {
   display: grid;
-  grid-template-columns: 0.10fr 0.90fr;
+  grid-template-columns: 0.20fr 0.80fr;
   grid-template-rows: 0.15fr 0.85fr;
   height: 90vh;
   padding: 10px 10px 0;
@@ -48,7 +48,13 @@
   overflow-y: auto;
   font-size: 1em;
   margin-left: 10px;
-
   background-image: url();
   background-size: contain;
+}
+.chatbox {
+  width: 80%; 
+}
+.chatbutton {
+  width: 10%;
+  float:right;
 }

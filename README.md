@@ -21,11 +21,11 @@ Lists the users groups and channels they are a member of, the chat history of th
 Provides functions that allow for front and back end data communication.
 ###### userValid
 Used to prevent the user from accessing certain pages/functions depending on their login status.
-###### getLogin
+###### loginParse
 Exchanges information with the DataModifier on behalf of the Login page
 
 #### Back End
 ##### DataModifier
 Interacts with the .json data files that contains the users information
 ###### loginParse
-Uses information provided by DataManager's getLogin function and compares it against the user_list.json. If it finds a match, returns that user's data (exclusing the password) as an object, otherwise returns false.
+Uses information provided by DataManager's loginParse function and compares it against the user_list.json. If it finds a match, returns that user's data (exclusing the password) as an object, otherwise returns false.
