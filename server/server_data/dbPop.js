@@ -15,6 +15,7 @@ module.exports.populateDatabase = function () {
 			let collection = db.collection("userList");
 			let content = await collection.find({ "name":"Admin" }).limit(1).toArray().then()
 			if (content.length > 0 && drop === true){
+				console.log("DROPPING USER LIST")
 				await collection.drop();
 			}
 			if (content.length === 0 && drop === false){	// If no database exists, create dummy database
@@ -59,6 +60,7 @@ module.exports.populateDatabase = function () {
 			collection = db.collection("groupList");
 			content = await collection.find({ "id":0 }).limit(1).toArray();
 			if (content.length > 0 && drop === true){
+				console.log("DROPPING GROUP LIST")
 				await collection.drop();
 			}
 			if (content.length === 0 && drop === false){	// If no database exists, create dummy database
@@ -105,6 +107,7 @@ module.exports.populateDatabase = function () {
 			collection = db.collection("channelList");
 			content = await collection.find({ "id":0 }).limit(1).toArray();
 			if (content.length > 0 && drop === true){
+				console.log("DROPPING CHANNEL LIST")
 				await collection.drop();
 			}
 			if (content.length === 0 && drop === false){	// If no database exists, create dummy database
@@ -204,6 +207,7 @@ module.exports.populateDatabase = function () {
 			collection = db.collection("messageList");
 			content = await collection.find({ "id":0 }).limit(1).toArray();
 			if (content.length > 0 && drop === true){
+				console.log("DROPPING MESSAGE LIST")
 				await collection.drop();
 			}
 			if (content.length === 0 && drop === false){	// If no database exists, create dummy database

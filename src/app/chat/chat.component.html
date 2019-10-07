@@ -5,7 +5,7 @@
             <div *ngFor="let group of groupList">
                 {{group.gname}}
                 <div *ngFor="let channel of channelList">
-                    <button (click)="messageList(channel.id)" *ngIf="channel.group==group.gname">{{channel.cname}}</button>
+                    <button (click)="messageList(channel.id)" *ngIf="channel.group==group.gname" class="btn btn-primary">{{channel.cname}}</button>
                 </div>
             </div>
         </div>

@@ -19,13 +19,13 @@ module.exports.loginParse = async function loginParse(email, pass){
 		console.log(user);
 
 		if (user.length === 0){
-			console.log("User isn't real");
+			//console.log("User isn't real");
 			return false;
 		} if (user[0].pass === pass){
-			console.log("User was \"hacked\" successfully");
+			//console.log("User was \"hacked\" successfully");
 			return true;
 		} else {
-			console.log("Wrong email or password");
+			//console.log("Wrong email or password");
 			return false;
 		}
 	} catch (err) {
@@ -39,10 +39,10 @@ module.exports.accountParse = async function accountParse(email){
 		const collection = db.collection("userList");
 		const user = await collection.find({ "email":email }).limit(1).toArray();
 		if (user === 0){
-			console.log("Trouble finding data");
+			//console.log("Trouble finding data");
 			return
 		} if (user[0].email === email){
-			console.log("Found user and their details");
+			//console.log("Found user and their details");
 			return user[0];
 		}
 	} catch (err) {

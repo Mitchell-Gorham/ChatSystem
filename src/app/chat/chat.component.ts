@@ -54,7 +54,7 @@ export class ChatComponent implements OnInit {
 			//Set up Chat Socket
 			this.socket.initSocket();
 			this.ioConnection = await this.socket.onMessage().subscribe((message:any) => {
-				console.log("recv", message);
+				//console.log(message);
 				if (message.cID == parseInt(localStorage.getItem("channel-id"))) {
 					this.msgList.push(message)
 				}
